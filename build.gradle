@@ -18,9 +18,14 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compileOnly('javax.json:javax.json-api:1.1.4')
-    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
-    compile fileTree(dir: 'lib', includes: ['*jar'])
+    compile('javax.json:javax.json-api:1.1.4')
+    compile('javax.servlet:javax.servlet-api:4.0.1')
+    compile("log4j:log4j:1.2.17")
+    compile("org.jetbrains:annotations:19.0.0")
+    compile(fileTree(dir: 'lib', includes: ['*.jar']))
+
+    runtimeOnly("org.glassfish:javax.json:1.1.4")
+    runtimeOnly("mysql:mysql-connector-java:8.0.21")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
