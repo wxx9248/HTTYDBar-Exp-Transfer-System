@@ -2,6 +2,13 @@ package com.httydbar.exptransfer.util;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * An extension of the Account class, making it able to store Tieba ID, BDUSS, STOKEN associated to the corresponding
+ * Baidu Account.
+ *
+ * @author wxx9248
+ * @see Account
+ */
 public class ExtendedAccount extends Account
 {
     private final String tiebaID;

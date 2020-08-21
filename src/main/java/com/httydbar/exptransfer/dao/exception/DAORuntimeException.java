@@ -1,7 +1,7 @@
 package com.httydbar.exptransfer.dao.exception;
 
 /**
- * The base exception of all runtime exception for all DAO operations.
+ * The base exception of all runtime exceptions for all DAO operations.
  *
  * @author wxx9248
  */

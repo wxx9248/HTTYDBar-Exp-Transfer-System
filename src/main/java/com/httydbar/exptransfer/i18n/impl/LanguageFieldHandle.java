@@ -1,5 +1,12 @@
 package com.httydbar.exptransfer.i18n.impl;
 
+/**
+ * An enumeration class that describes all language handles, which are used to get language strings based on settings
+ * in LanguageProvider.
+ *
+ * @author wxx9248
+ * @see LanguageProvider
+ */
 public enum LanguageFieldHandle
 {
     E_DAO_IMPL_DATABASE_DAO_FACTORY_NO_DEFAULT_DATABASE,

@@ -2,6 +2,11 @@ package com.httydbar.exptransfer.util;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * A class that describes a basic account
+ *
+ * @author wxx9248
+ */
 public class Account
 {
     private final String username;

@@ -1,9 +1,10 @@
 package com.httydbar.exptransfer.service.exception;
 
 /**
- * The base exception of all runtime exception for all DAO operations.
+ * A runtime exception thrown when a certain algorithm is not found.
  *
  * @author wxx9248
+ * @see com.httydbar.exptransfer.service.UsernamePasswordVerificationService
  */
 public class AlgorithmNotFoundException extends ServiceRuntimeException
 {

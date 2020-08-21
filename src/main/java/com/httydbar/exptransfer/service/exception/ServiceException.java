@@ -1,5 +1,10 @@
 package com.httydbar.exptransfer.service.exception;
 
+/**
+ * The base exception class for all services.
+ *
+ * @author wxx9248
+ */
 public class ServiceException extends Exception
 {
     public ServiceException()

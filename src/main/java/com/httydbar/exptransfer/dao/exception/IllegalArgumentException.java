@@ -1,7 +1,7 @@
 package com.httydbar.exptransfer.dao.exception;
 
 /**
- * The runtime exception thrown when an illegal argument is passed.
+ * A runtime exception thrown when an illegal argument is passed.
  *
  * @author wxx9248
  */

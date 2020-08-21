@@ -7,6 +7,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Language pack for zh-CN.
+ *
+ * @author wxx9248
+ * @see AmericanEnglish
+ */
 public final class SimplifiedChinese implements ILanguagePack
 {
     private static final SimplifiedChinese                INSTANCE     = new SimplifiedChinese();
@@ -42,8 +48,8 @@ public final class SimplifiedChinese implements ILanguagePack
     }
     
     @Override
-    public String getField(@NotNull LanguageFieldHandle field)
+    public String getField(@NotNull LanguageFieldHandle handle)
     {
-        return LANGUAGE_MAP.get(field);
+        return LANGUAGE_MAP.get(handle);
     }
 }

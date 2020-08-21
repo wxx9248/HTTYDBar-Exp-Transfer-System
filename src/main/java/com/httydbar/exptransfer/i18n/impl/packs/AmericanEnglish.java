@@ -7,6 +7,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Language pack for en-US.
+ *
+ * @author wxx9248
+ */
 public class AmericanEnglish implements ILanguagePack
 {
     private static final AmericanEnglish                  INSTANCE     = new AmericanEnglish();
@@ -31,22 +36,32 @@ public class AmericanEnglish implements ILanguagePack
         }
     };
     
+    // Singleton, not instantiable through constructors.
     private AmericanEnglish() {}
     
-    public static AmericanEnglish getInstance()
-    {
-        return INSTANCE;
-    }
+    /**
+     * Getter of the instance of the class.
+     *
+     * @return The instance of the class.
+     */
+    public static AmericanEnglish getInstance() { return INSTANCE; }
     
+    /**
+     * Getters of the language map.
+     *
+     * @return The en-US language map.
+     */
     @Override
-    public Map<LanguageFieldHandle, String> getMap()
-    {
-        return LANGUAGE_MAP;
-    }
+    public Map<LanguageFieldHandle, String> getMap() { return LANGUAGE_MAP; }
     
+    /**
+     * Get the corresponding language field (different translations) based on the LanguageFieldHandle specified.
+     *
+     * @param handle A language handle specified in enum class LanguageFieldHandle.
+     * @return Corresponding language field
+     *
+     * @see LanguageFieldHandle
+     */
     @Override
-    public String getField(@NotNull LanguageFieldHandle field)
-    {
-        return LANGUAGE_MAP.get(field);
-    }
+    public String getField(@NotNull LanguageFieldHandle handle) { return LANGUAGE_MAP.get(handle); }
 }

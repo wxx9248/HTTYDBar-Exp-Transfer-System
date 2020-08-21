@@ -12,7 +12,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+/**
+ * An interface that describes a database DAO object, which manages the connection of a database system.
+ *
+ * @author wxx9248
+ */
 public interface IDatabaseDAO
 {
     void connect(@NotNull Account account) throws DatabaseConnectionFailedException;
