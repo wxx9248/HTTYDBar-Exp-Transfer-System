@@ -10,10 +10,10 @@ import com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish;
  */
 public class LanguageProvider
 {
+    private static final ILanguagePack CURRENT_LANGUAGE = AmericanEnglish.getInstance();
+    
     // Pure static, not instantiable.
     private LanguageProvider() {}
-    
-    private static final ILanguagePack CURRENT_LANGUAGE = AmericanEnglish.getInstance();
     
     /**
      * Getter of currently used language pack.

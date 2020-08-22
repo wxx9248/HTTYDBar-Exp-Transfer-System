@@ -1,8 +1,8 @@
 import com.httydbar.exptransfer.dao.IDatabaseDAOWithAccount;
 import com.httydbar.exptransfer.dao.impl.DatabaseDAOFactory;
-import com.httydbar.exptransfer.util.Account;
-import com.httydbar.exptransfer.util.Database;
-import com.httydbar.exptransfer.util.SQLParamManager;
+import com.httydbar.exptransfer.util.impl.Account;
+import com.httydbar.exptransfer.util.impl.Database;
+import com.httydbar.exptransfer.util.impl.SQLParamManager;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

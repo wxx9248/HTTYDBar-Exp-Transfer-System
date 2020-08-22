@@ -1,14 +1,14 @@
 package com.httydbar.exptransfer.util.exception;
 
-import com.httydbar.exptransfer.dao.exception.DAORuntimeException;
+import com.httydbar.exptransfer.util.impl.SQLParamManager;
 
 /**
  * An exception that is thrown when unsupported SQL parameters are passed.
  *
  * @author wxx9248
- * @see com.httydbar.exptransfer.util.SQLParamManager
+ * @see SQLParamManager
  */
-public class UnsupportedSQLTypeException extends DAORuntimeException
+public class UnsupportedSQLTypeException extends UtilRuntimeException
 {
     public UnsupportedSQLTypeException()
     {

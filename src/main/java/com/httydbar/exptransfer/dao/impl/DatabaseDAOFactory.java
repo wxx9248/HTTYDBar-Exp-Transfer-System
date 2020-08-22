@@ -5,8 +5,8 @@ import com.httydbar.exptransfer.dao.IDatabaseDAOWithAccount;
 import com.httydbar.exptransfer.dao.exception.*;
 import com.httydbar.exptransfer.i18n.impl.LanguageFieldHandle;
 import com.httydbar.exptransfer.i18n.impl.LanguageProvider;
-import com.httydbar.exptransfer.util.Account;
-import com.httydbar.exptransfer.util.Database;
+import com.httydbar.exptransfer.util.impl.Account;
+import com.httydbar.exptransfer.util.impl.Database;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;

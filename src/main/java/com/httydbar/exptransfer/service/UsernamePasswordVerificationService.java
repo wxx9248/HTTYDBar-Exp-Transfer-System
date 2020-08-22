@@ -3,22 +3,26 @@ package com.httydbar.exptransfer.service;
 import com.httydbar.exptransfer.dao.IDatabaseDAOWithAccount;
 import com.httydbar.exptransfer.dao.exception.DatabaseConnectionFailedException;
 import com.httydbar.exptransfer.dao.impl.DatabaseDAOFactory;
-import com.httydbar.exptransfer.i18n.impl.LanguageFieldHandle;
-import com.httydbar.exptransfer.i18n.impl.LanguageProvider;
-import com.httydbar.exptransfer.service.exception.AlgorithmNotFoundException;
-import com.httydbar.exptransfer.util.Account;
-import com.httydbar.exptransfer.util.ConfigManager;
-import com.httydbar.exptransfer.util.SQLParamManager;
+import com.httydbar.exptransfer.util.IDigest;
+import com.httydbar.exptransfer.util.exception.ConfigNotLoadedException;
+import com.httydbar.exptransfer.util.exception.ConfigNotParsedException;
+import com.httydbar.exptransfer.util.impl.*;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * A service class that is used to verify the correctness of a username-password pair.
+ *
+ * @author wxx9248
+ */
 public class UsernamePasswordVerificationService
 {
+    // Pure static, not instantiable.
+    private UsernamePasswordVerificationService() {}
+    
     /**
      * Verify the correctness of a username-password pair.
      *
@@ -27,9 +31,12 @@ public class UsernamePasswordVerificationService
      * @return UID if succeeded, -1 if failed.
      *
      * @throws DatabaseConnectionFailedException When database connection is failed.
-     * @throws SQLException                      When other SQL errors occured.
+     * @throws SQLException                      When other SQL errors occurred.
+     * @throws ConfigNotLoadedException          When global config has not been loaded.
+     * @throws ConfigNotParsedException          When global config has not been parsed.
      */
-    public static int verify(Account account) throws DatabaseConnectionFailedException, SQLException
+    public static int verify(Account account) throws DatabaseConnectionFailedException, SQLException,
+                                                     ConfigNotLoadedException, ConfigNotParsedException
     {
         String username    = account.getUsername();
         String md5Password = account.getPassword();
@@ -50,38 +57,16 @@ public class UsernamePasswordVerificationService
         String saltedPassword = resultSet.getString("password");
         String salt           = resultSet.getString("salt");
         
-        if (saltedPassword.equals(getMD5(md5Password + salt)))
+        IDigest md5Digest = MD5Digest.getInstance();
+        
+        if (saltedPassword.equals(ByteCodec.HexString.toHexString(md5Digest.digest((md5Password + salt).getBytes(
+                StandardCharsets.UTF_8)), 32)))
         {
             return uid;
         }
         else
         {
             return -1;
-        }
-    }
-    
-    private static String getMD5(String input)
-    {
-        try
-        {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            
-            byte[]     rawMessageDigest     = messageDigest.digest(input.getBytes());
-            BigInteger numericMessageDigest = new BigInteger(1, rawMessageDigest);
-            
-            StringBuilder hexStringMessageDigestBuilder = new StringBuilder(numericMessageDigest.toString(16));
-            // Front zero padding
-            while (hexStringMessageDigestBuilder.length() < 32)
-            {
-                hexStringMessageDigestBuilder.insert(0, "0");
-            }
-            
-            return hexStringMessageDigestBuilder.toString();
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            throw new AlgorithmNotFoundException(LanguageProvider.getCurrentLanguage().getField(
-                    LanguageFieldHandle.E_SERVICE_USERNAME_PASSWORD_VERIFICATION_SERVICE_ALGORITHM_NOT_FOUND), e);
         }
     }
 }

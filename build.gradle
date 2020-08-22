@@ -17,12 +17,22 @@ ext {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
-    compile('javax.json:javax.json-api:1.1.4')
-    compile('javax.servlet:javax.servlet-api:4.0.1')
-    compile("log4j:log4j:1.2.17")
-    compile("org.jetbrains:annotations:19.0.0")
-    compile(fileTree(dir: 'lib', includes: ['*.jar']))
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+    compileOnly("org.jetbrains:annotations:19.0.0")
+
+    implementation('javax.json:javax.json-api:1.1.4')
+    implementation("log4j:log4j:1.2.17")
+    implementation("org.bouncycastle:bcprov-jdk16:1.46")
+    implementation(fileTree(dir: 'lib', includes: ['*.jar']))
 
     runtimeOnly("org.glassfish:javax.json:1.1.4")
     runtimeOnly("mysql:mysql-connector-java:8.0.21")

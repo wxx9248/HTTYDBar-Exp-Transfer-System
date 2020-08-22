@@ -3,8 +3,8 @@ package com.httydbar.exptransfer.dao;
 import com.httydbar.exptransfer.dao.exception.DAOException;
 import com.httydbar.exptransfer.dao.exception.DatabaseCloseFailedException;
 import com.httydbar.exptransfer.dao.exception.DatabaseConnectionFailedException;
-import com.httydbar.exptransfer.util.Account;
-import com.httydbar.exptransfer.util.Database;
+import com.httydbar.exptransfer.util.impl.Account;
+import com.httydbar.exptransfer.util.impl.Database;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Connection;

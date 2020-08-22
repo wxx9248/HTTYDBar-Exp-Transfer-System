@@ -1,4 +1,4 @@
-package com.httydbar.exptransfer.util;
+package com.httydbar.exptransfer.util.impl;
 
 import com.httydbar.exptransfer.i18n.impl.LanguageFieldHandle;
 import com.httydbar.exptransfer.i18n.impl.LanguageProvider;

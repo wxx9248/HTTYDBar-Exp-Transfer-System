@@ -27,12 +27,28 @@ public class AmericanEnglish implements ILanguagePack
             put(LanguageFieldHandle.E_DAO_IMPL_DATABASE_DAO_FACTORY_DATABASE_CLOSED,
                 "Database was closed or not connected");
             put(LanguageFieldHandle.E_DAO_IMPL_DATABASE_DAO_FACTORY_ILLEGAL_ARGUMENT, "Illegal argument");
-            put(LanguageFieldHandle.E_DAO_IMPL_DATABASE_DAO_FACTORY_UNKNOWN, "Unknown error");
+            put(LanguageFieldHandle.E_DAO_IMPL_DATABASE_DAO_FACTORY_UNKNOWN, "Unknown database error");
             
             put(LanguageFieldHandle.E_UTIL_SQL_PARAM_MANAGER_UNSUPPORTED_SQL_DATA_TYPE, "Unsupported SQL data type");
-            
-            put(LanguageFieldHandle.E_SERVICE_USERNAME_PASSWORD_VERIFICATION_SERVICE_ALGORITHM_NOT_FOUND,
+            put(LanguageFieldHandle.E_UTIL_CONFIG_MANAGER_CONFIG_NOT_LOADED, "Configuration used before loaded");
+            put(LanguageFieldHandle.E_UTIL_CONFIG_MANAGER_CONFIG_NOT_PARSED, "Configuration used before parsed");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_PADDING_NOT_FOUND,
+                "The specified padding method is not found (RSA)");
+            put(LanguageFieldHandle.E_UTIL_MD5_DIGEST_ALGORITHM_NOT_FOUND,
                 "The specified algorithm is not found (MD5)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_ALGORITHM_NOT_FOUND,
+                "The specified algorithm is not found (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_NO_PRIVATE_KEY, "Private key unspecified (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_NO_PUBLIC_KEY, "Public key unspecified (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_UNKNOWN_PRIVATE_KEY_SPEC,
+                "Unknown private key specification (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_UNKNOWN_PUBLIC_KEY_SPEC,
+                "Unknown public key specification (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_INVALID_PUBLIC_KEY, "Invalid public key (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_INVALID_PRIVATE_KEY, "Invalid private key (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_ILLEGAL_BLOCK_SIZE, "Invalid block size (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_BAD_PADDING, "Bad padding (RSA)");
+            put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_UNKNOWN, "Unknown error (RSA)");
         }
     };
     
@@ -58,6 +74,7 @@ public class AmericanEnglish implements ILanguagePack
      * Get the corresponding language field (different translations) based on the LanguageFieldHandle specified.
      *
      * @param handle A language handle specified in enum class LanguageFieldHandle.
+     *
      * @return Corresponding language field
      *
      * @see LanguageFieldHandle

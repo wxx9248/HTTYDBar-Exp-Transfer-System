@@ -1,8 +1,9 @@
 public class TestMain
 {
     private static ITestClass[] testClasses = {
-            //new TestDAO(),
+            new TestDAO(),
             new TestService(),
+            new TestRSA(),
     };
     
     private TestMain() {}
