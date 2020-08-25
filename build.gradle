@@ -34,6 +34,10 @@ dependencies {
     implementation("org.bouncycastle:bcprov-jdk16:1.46")
     implementation(fileTree(dir: 'lib', includes: ['*.jar']))
 
+    runtimeOnly("org.apache.httpcomponents:httpclient:4.5.12")
+    runtimeOnly("org.slf4j:slf4j-api:1.7.25")
+    runtimeOnly("org.slf4j:slf4j-nop:1.7.25")
+    runtimeOnly("org.jsoup:jsoup:1.13.1")
     runtimeOnly("org.glassfish:javax.json:1.1.4")
     runtimeOnly("mysql:mysql-connector-java:8.0.21")
 

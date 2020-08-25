@@ -9,7 +9,7 @@ import com.httydbar.exptransfer.util.impl.ConfigManager;
  * @author wxx9248
  * @see ConfigManager
  */
-public class ConfigNotParsedException extends UtilException
+public class ConfigNotParsedException extends ConfigException
 {
     public ConfigNotParsedException()
     {

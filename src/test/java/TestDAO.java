@@ -15,23 +15,25 @@ public class TestDAO implements ITestClass
                                          "jdbc:mysql://192.168.92.2:3306",
                                          "toothle2_newberk",
                                          "?useUnicode=true&characterEncoding=utf-8");
-        Account account = new Account("toothle2_toothless", "toothlesshiccup2020");
-        DatabaseDAOFactory factory = new DatabaseDAOFactory(database);
-        IDatabaseDAOWithAccount databaseDAO = factory.getInstance(account);
-        SQLParamManager sqlParamManager = new SQLParamManager();
+        Account                 account         = new Account("toothle2_toothless", "toothlesshiccup2020");
+        DatabaseDAOFactory      factory         = new DatabaseDAOFactory(database);
+        IDatabaseDAOWithAccount databaseDAO     = factory.getInstance(account);
+        SQLParamManager         sqlParamManager = new SQLParamManager();
         
         try
         {
             databaseDAO.connect();
             
-            ResultSet rs = databaseDAO.doQuery(databaseDAO.getPreparedStatement("SELECT uid, username FROM pre_common_member;"));
+            ResultSet rs = databaseDAO.doQuery(
+                    databaseDAO.getPreparedStatement("SELECT uid, username FROM pre_common_member;"));
             
             while (rs.next())
             {
                 System.out.println("ID: " + rs.getInt("uid") + ", Username: " + rs.getString("username"));
             }
             
-            PreparedStatement preparedStatement = databaseDAO.getPreparedStatement("INSERT INTO wxx9248_test (id, data) VALUE (?, ?);");
+            PreparedStatement preparedStatement = databaseDAO.getPreparedStatement(
+                    "INSERT INTO wxx9248_test (id, data) VALUE (?, ?);");
             sqlParamManager.addParam(1);
             sqlParamManager.addParam("Hello world");
             sqlParamManager.populatePreparedStatement(preparedStatement);

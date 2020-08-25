@@ -81,7 +81,9 @@ public class RSACipher implements ICipher
      * Encrypt a message using RSA algorithm.
      *
      * @param bytes A byte array that contains the message to be encrypted.
+     *
      * @return Encrypted message
+     *
      * @throws NoSpecifiedPublicKeyException When encrypt message with no public key specified.
      */
     @Override
@@ -116,7 +118,9 @@ public class RSACipher implements ICipher
      * Decrypt a message using RSA algorithm.
      *
      * @param bytes A byte array that contains the message to be decrypted.
+     *
      * @return Decrypted message
+     *
      * @throws NoSpecifiedPrivateKeyException When encrypt message with no private key specified.
      */
     @Override
@@ -240,7 +244,7 @@ public class RSACipher implements ICipher
     
     private PublicKey parseOpenSSLPublicKey(@Nullable String publicKey)
     {
-        if (privateKey == null)
+        if (publicKey == null)
             return null;
         
         String publicKeyBase64 = publicKey.replace("-----BEGIN PUBLIC KEY-----", "")

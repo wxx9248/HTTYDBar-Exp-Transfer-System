@@ -1,88 +1,106 @@
 com/httydbar/exptransfer/util/exception/ConfigNotParsedException.java
  com.httydbar.exptransfer.util.exception.ConfigNotParsedException
-com/httydbar/exptransfer/util/exception/NoSpecifiedPrivateKeyException.java
- com.httydbar.exptransfer.util.exception.NoSpecifiedPrivateKeyException
 com/httydbar/exptransfer/util/exception/UnsupportedSQLTypeException.java
  com.httydbar.exptransfer.util.exception.UnsupportedSQLTypeException
-com/httydbar/exptransfer/util/exception/IllegalArgumentException.java
- com.httydbar.exptransfer.util.exception.IllegalArgumentException
-com/httydbar/exptransfer/dao/exception/DatabaseCloseFailedException.java
- com.httydbar.exptransfer.dao.exception.DatabaseCloseFailedException
 com/httydbar/exptransfer/i18n/impl/LanguageFieldHandle.java
  com.httydbar.exptransfer.i18n.impl.LanguageFieldHandle
-com/httydbar/exptransfer/util/impl/SQLParamManager.java
- com.httydbar.exptransfer.util.impl.SQLParamManager
- com.httydbar.exptransfer.util.impl.SQLParamManager$1
- com.httydbar.exptransfer.util.impl.SQLParamManager$SQLParam
 com/httydbar/exptransfer/dao/exception/DAOException.java
  com.httydbar.exptransfer.dao.exception.DAOException
-com/httydbar/exptransfer/util/impl/ConfigManager.java
- com.httydbar.exptransfer.util.impl.ConfigManager
 com/httydbar/exptransfer/dao/impl/DatabaseDAOFactory.java
  com.httydbar.exptransfer.dao.impl.DatabaseDAOFactory
  com.httydbar.exptransfer.dao.impl.DatabaseDAOFactory$DatabaseDAO
  com.httydbar.exptransfer.dao.impl.DatabaseDAOFactory$DatabaseDAOWithAccount
-com/httydbar/exptransfer/i18n/impl/packs/SimplifiedChinese.java
- com.httydbar.exptransfer.i18n.impl.packs.SimplifiedChinese
- com.httydbar.exptransfer.i18n.impl.packs.SimplifiedChinese$1
 com/httydbar/exptransfer/util/exception/NoSpecifiedKeyException.java
  com.httydbar.exptransfer.util.exception.NoSpecifiedKeyException
 com/httydbar/exptransfer/util/impl/Account.java
  com.httydbar.exptransfer.util.impl.Account
+com/httydbar/exptransfer/dao/exception/NoDefaultDatabaseException.java
+ com.httydbar.exptransfer.dao.exception.NoDefaultDatabaseException
+com/httydbar/exptransfer/service/exception/TiebaNotSubscribedException.java
+ com.httydbar.exptransfer.service.exception.TiebaNotSubscribedException
+com/httydbar/exptransfer/util/exception/UtilRuntimeException.java
+ com.httydbar.exptransfer.util.exception.UtilRuntimeException
+com/httydbar/exptransfer/util/impl/ServerResponse.java
+ com.httydbar.exptransfer.util.impl.ServerResponse
+com/httydbar/exptransfer/service/exception/UnmatchedRequestException.java
+ com.httydbar.exptransfer.service.exception.UnmatchedRequestException
+com/httydbar/exptransfer/util/impl/MD5Digest.java
+ com.httydbar.exptransfer.util.impl.MD5Digest
+com/httydbar/exptransfer/dao/exception/DriverLoadFailedException.java
+ com.httydbar.exptransfer.dao.exception.DriverLoadFailedException
+com/httydbar/exptransfer/dao/IDatabaseDAOWithAccount.java
+ com.httydbar.exptransfer.dao.IDatabaseDAOWithAccount
+com/httydbar/exptransfer/util/exception/NoSpecifiedPublicKeyException.java
+ com.httydbar.exptransfer.util.exception.NoSpecifiedPublicKeyException
+com/httydbar/exptransfer/i18n/impl/LanguageProvider.java
+ com.httydbar.exptransfer.i18n.impl.LanguageProvider
+com/httydbar/exptransfer/dao/exception/DatabaseClosedException.java
+ com.httydbar.exptransfer.dao.exception.DatabaseClosedException
+com/httydbar/exptransfer/service/exception/InvalidTokenException.java
+ com.httydbar.exptransfer.service.exception.InvalidTokenException
+com/httydbar/exptransfer/util/impl/ExtendedServerResponse.java
+ com.httydbar.exptransfer.util.impl.ExtendedServerResponse
+com/httydbar/exptransfer/util/ICipher.java
+ com.httydbar.exptransfer.util.ICipher
+com/httydbar/exptransfer/util/exception/ConfigException.java
+ com.httydbar.exptransfer.util.exception.ConfigException
+com/httydbar/exptransfer/util/exception/NoSpecifiedPrivateKeyException.java
+ com.httydbar.exptransfer.util.exception.NoSpecifiedPrivateKeyException
+com/httydbar/exptransfer/util/exception/IllegalArgumentException.java
+ com.httydbar.exptransfer.util.exception.IllegalArgumentException
+com/httydbar/exptransfer/dao/exception/DatabaseCloseFailedException.java
+ com.httydbar.exptransfer.dao.exception.DatabaseCloseFailedException
+com/httydbar/exptransfer/util/impl/SQLParamManager.java
+ com.httydbar.exptransfer.util.impl.SQLParamManager
+ com.httydbar.exptransfer.util.impl.SQLParamManager$1
+ com.httydbar.exptransfer.util.impl.SQLParamManager$SQLParam
+com/httydbar/exptransfer/util/impl/ConfigManager.java
+ com.httydbar.exptransfer.util.impl.ConfigManager
+com/httydbar/exptransfer/i18n/impl/packs/SimplifiedChinese.java
+ com.httydbar.exptransfer.i18n.impl.packs.SimplifiedChinese
+ com.httydbar.exptransfer.i18n.impl.packs.SimplifiedChinese$1
 com/httydbar/exptransfer/util/exception/ConfigNotLoadedException.java
  com.httydbar.exptransfer.util.exception.ConfigNotLoadedException
 com/httydbar/exptransfer/i18n/ILanguagePack.java
  com.httydbar.exptransfer.i18n.ILanguagePack
-com/httydbar/exptransfer/dao/exception/NoDefaultDatabaseException.java
- com.httydbar.exptransfer.dao.exception.NoDefaultDatabaseException
-com/httydbar/exptransfer/util/exception/UtilRuntimeException.java
- com.httydbar.exptransfer.util.exception.UtilRuntimeException
+com/httydbar/exptransfer/service/exception/ExceptionalException.java
+ com.httydbar.exptransfer.service.exception.ExceptionalException
 com/httydbar/exptransfer/util/impl/Database.java
  com.httydbar.exptransfer.util.impl.Database
 com/httydbar/exptransfer/util/exception/UtilException.java
  com.httydbar.exptransfer.util.exception.UtilException
 com/httydbar/exptransfer/util/impl/ExtendedAccount.java
  com.httydbar.exptransfer.util.impl.ExtendedAccount
-com/httydbar/exptransfer/dao/exception/DAORuntimeException.java
- com.httydbar.exptransfer.dao.exception.DAORuntimeException
-com/httydbar/exptransfer/dao/exception/DriverLoadFailedException.java
- com.httydbar.exptransfer.dao.exception.DriverLoadFailedException
 com/httydbar/exptransfer/dao/IDatabaseDAO.java
  com.httydbar.exptransfer.dao.IDatabaseDAO
-com/httydbar/exptransfer/dao/exception/IllegalArgumentException.java
- com.httydbar.exptransfer.dao.exception.IllegalArgumentException
-com/httydbar/exptransfer/dao/IDatabaseDAOWithAccount.java
- com.httydbar.exptransfer.dao.IDatabaseDAOWithAccount
-com/httydbar/exptransfer/service/exception/ServiceRuntimeException.java
- com.httydbar.exptransfer.service.exception.ServiceRuntimeException
-com/httydbar/exptransfer/util/exception/NoSpecifiedPublicKeyException.java
- com.httydbar.exptransfer.util.exception.NoSpecifiedPublicKeyException
-com/httydbar/exptransfer/web/servlet/MainServlet.java
- com.httydbar.exptransfer.web.servlet.MainServlet
-com/httydbar/exptransfer/service/exception/ServiceException.java
- com.httydbar.exptransfer.service.exception.ServiceException
-com/httydbar/exptransfer/i18n/impl/packs/AmericanEnglish.java
- com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish
- com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish$1
-com/httydbar/exptransfer/dao/exception/DatabaseClosedException.java
- com.httydbar.exptransfer.dao.exception.DatabaseClosedException
-com/httydbar/exptransfer/dao/exception/DatabaseConnectionFailedException.java
- com.httydbar.exptransfer.dao.exception.DatabaseConnectionFailedException
-com/httydbar/exptransfer/i18n/impl/LanguageProvider.java
- com.httydbar.exptransfer.i18n.impl.LanguageProvider
-com/httydbar/exptransfer/util/impl/RSACipher.java
- com.httydbar.exptransfer.util.impl.RSACipher
-com/httydbar/exptransfer/util/impl/MD5Digest.java
- com.httydbar.exptransfer.util.impl.MD5Digest
 com/httydbar/exptransfer/util/impl/ByteCodec.java
  com.httydbar.exptransfer.util.impl.ByteCodec
  com.httydbar.exptransfer.util.impl.ByteCodec$Base64String
  com.httydbar.exptransfer.util.impl.ByteCodec$HexString
-com/httydbar/exptransfer/util/ICipher.java
- com.httydbar.exptransfer.util.ICipher
-com/httydbar/exptransfer/service/UsernamePasswordVerificationService.java
- com.httydbar.exptransfer.service.UsernamePasswordVerificationService
+com/httydbar/exptransfer/service/exception/ServiceRuntimeException.java
+ com.httydbar.exptransfer.service.exception.ServiceRuntimeException
+com/httydbar/exptransfer/service/exception/ServiceException.java
+ com.httydbar.exptransfer.service.exception.ServiceException
+com/httydbar/exptransfer/dao/exception/DAORuntimeException.java
+ com.httydbar.exptransfer.dao.exception.DAORuntimeException
+com/httydbar/exptransfer/dao/exception/DatabaseConnectionFailedException.java
+ com.httydbar.exptransfer.dao.exception.DatabaseConnectionFailedException
+com/httydbar/exptransfer/util/impl/RSACipher.java
+ com.httydbar.exptransfer.util.impl.RSACipher
+com/httydbar/exptransfer/service/exception/MultipleRecordsUpdatedException.java
+ com.httydbar.exptransfer.service.exception.MultipleRecordsUpdatedException
+com/httydbar/exptransfer/service/exception/ZeroRecordUpdatedException.java
+ com.httydbar.exptransfer.service.exception.ZeroRecordUpdatedException
+com/httydbar/exptransfer/dao/exception/IllegalArgumentException.java
+ com.httydbar.exptransfer.dao.exception.IllegalArgumentException
+com/httydbar/exptransfer/i18n/impl/packs/AmericanEnglish.java
+ com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish
+ com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish$1
 com/httydbar/exptransfer/util/IDigest.java
  com.httydbar.exptransfer.util.IDigest
+com/httydbar/exptransfer/service/UsernamePasswordVerificationService.java
+ com.httydbar.exptransfer.service.UsernamePasswordVerificationService
 com/httydbar/exptransfer/service/ExpMigrationService.java
  com.httydbar.exptransfer.service.ExpMigrationService
+com/httydbar/exptransfer/web/servlet/MainServlet.java
+ com.httydbar.exptransfer.web.servlet.MainServlet

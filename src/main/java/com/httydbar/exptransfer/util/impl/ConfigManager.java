@@ -2,10 +2,7 @@ package com.httydbar.exptransfer.util.impl;
 
 import com.httydbar.exptransfer.i18n.impl.LanguageFieldHandle;
 import com.httydbar.exptransfer.i18n.impl.LanguageProvider;
-import com.httydbar.exptransfer.util.exception.ConfigNotLoadedException;
-import com.httydbar.exptransfer.util.exception.ConfigNotParsedException;
-import com.httydbar.exptransfer.util.exception.NoSpecifiedPrivateKeyException;
-import com.httydbar.exptransfer.util.exception.NoSpecifiedPublicKeyException;
+import com.httydbar.exptransfer.util.exception.*;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -175,7 +172,7 @@ public class ConfigManager
      * @throws ConfigNotParsedException When global config has not been parsed.
      * @see Database
      */
-    public static Database getDatabaseConfiguration() throws ConfigNotLoadedException, ConfigNotParsedException
+    public static Database getDatabaseConfiguration() throws ConfigException
     {
         checkPrerequisites();
         return databaseConfiguration;
@@ -190,7 +187,7 @@ public class ConfigManager
      * @throws ConfigNotParsedException When global config has not been parsed.
      * @see Account
      */
-    public static Account getDatabaseAccount() throws ConfigNotLoadedException, ConfigNotParsedException
+    public static Account getDatabaseAccount() throws ConfigException
     {
         checkPrerequisites();
         return databaseAccount;
@@ -204,7 +201,7 @@ public class ConfigManager
      * @throws ConfigNotLoadedException When global config has not been loaded.
      * @throws ConfigNotParsedException When global config has not been parsed.
      */
-    public static String getPrivateRSAKey() throws ConfigNotLoadedException, ConfigNotParsedException
+    public static String getPrivateRSAKey() throws ConfigException
     {
         checkPrerequisites();
         return privateRSAKey;
@@ -218,13 +215,13 @@ public class ConfigManager
      * @throws ConfigNotLoadedException When global config has not been loaded.
      * @throws ConfigNotParsedException When global config has not been parsed.
      */
-    public static String getPublicRSAKey() throws ConfigNotLoadedException, ConfigNotParsedException
+    public static String getPublicRSAKey() throws ConfigException
     {
         checkPrerequisites();
         return publicRSAKey;
     }
     
-    private static void checkPrerequisites() throws ConfigNotLoadedException, ConfigNotParsedException
+    private static void checkPrerequisites() throws ConfigException
     {
         if (jsonObject == null)
             throw new ConfigNotLoadedException(LanguageProvider.getCurrentLanguage().getField(

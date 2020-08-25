@@ -42,6 +42,20 @@ public final class SimplifiedChinese implements ILanguagePack
             put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_ILLEGAL_BLOCK_SIZE, "无效的块大小（RSA）");
             put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_BAD_PADDING, "无效的填充方式（RSA）");
             put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_UNKNOWN, "未知的错误（RSA）");
+            
+            put(LanguageFieldHandle.E_SERVICE_USERNAME_PASSWORD_VERIFICATION_SERVICE_UNKNOWN, "在验证用户名和密码时发生未知错误");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_INVALID_BDUSS_OR_STOKEN, "无效的BDUSS或SToken");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_NOT_SUBSCRIBED, "未关注驯龙高手吧");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_ZERO_RECORD_UPDATED, "零更新记录数");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_MULTIPLE_RECORDS_UPDATED, "多更新记录数");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_UNMATCHED_REQUEST, "两次提交的用户名密码不一致");
+            
+            put(LanguageFieldHandle.E_WEB_SERVLET_INVALID_AUTH_TYPE, "authType值无效");
+            put(LanguageFieldHandle.E_WEB_SERVLET_USERNAME_PASSWORD_MISMATCH, "用户名或密码不正确");
+            put(LanguageFieldHandle.E_WEB_SERVLET_UNKNOWN_ERROR, "未知的Servlet错误");
+            
+            put(LanguageFieldHandle.I_WEB_SERVLET_USERNAME_PASSWORD_PASS, "验证通过");
+            put(LanguageFieldHandle.I_WEB_SERVLET_MIGRATION_SUCCESS, "经验转移完成");
         }
     };
     

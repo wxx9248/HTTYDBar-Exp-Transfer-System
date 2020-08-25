@@ -13,6 +13,7 @@ public interface IDigest
      * Main interface of message digestion
      *
      * @param bytes A byte array that contains the message to be digested.
+     *
      * @return Digested message
      */
     byte[] digest(@NotNull byte[] bytes);

@@ -220,9 +220,14 @@ public class DatabaseDAOFactory
         }
         
         @Override
-        public PreparedStatement getPreparedStatement(@NotNull String query) throws SQLException
+        public PreparedStatement getPreparedStatement(@NotNull String query)
+                throws SQLException, DatabaseClosedException
         {
-            return connection.prepareStatement(query);
+            if (connection != null)
+                return connection.prepareStatement(query);
+            else
+                throw new DatabaseClosedException(LanguageProvider.getCurrentLanguage().getField(
+                        LanguageFieldHandle.E_DAO_IMPL_DATABASE_DAO_FACTORY_DATABASE_CLOSED));
         }
         
         /**
@@ -232,7 +237,7 @@ public class DatabaseDAOFactory
          */
         @Override
         public int doUpdate(@NotNull PreparedStatement preparedStatement)
-                throws DAOException, SQLException
+                throws DatabaseClosedException, SQLException
         {
             if (connection != null)
             {
@@ -250,7 +255,7 @@ public class DatabaseDAOFactory
          */
         @Override
         public ResultSet doQuery(@NotNull PreparedStatement preparedStatement)
-                throws DAOException, SQLException
+                throws DatabaseClosedException, SQLException
         {
             if (connection != null)
             {

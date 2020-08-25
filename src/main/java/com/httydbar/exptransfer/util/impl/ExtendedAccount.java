@@ -15,6 +15,12 @@ public class ExtendedAccount extends Account
     private final String bduss;
     private final String sToken;
     
+    public ExtendedAccount(@NotNull Account account, @NotNull String tiebaID, @NotNull String bduss,
+                           @NotNull String sToken)
+    {
+        this(account.getUsername(), account.getPassword(), tiebaID, bduss, sToken);
+    }
+    
     public ExtendedAccount(@NotNull String username, @NotNull String password, @NotNull String tiebaID,
                            @NotNull String bduss, @NotNull String sToken)
     {

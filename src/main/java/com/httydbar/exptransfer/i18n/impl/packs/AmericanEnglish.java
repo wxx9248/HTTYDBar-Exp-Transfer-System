@@ -49,6 +49,23 @@ public class AmericanEnglish implements ILanguagePack
             put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_ILLEGAL_BLOCK_SIZE, "Invalid block size (RSA)");
             put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_BAD_PADDING, "Bad padding (RSA)");
             put(LanguageFieldHandle.E_UTIL_RSA_CIPHER_UNKNOWN, "Unknown error (RSA)");
+            
+            put(LanguageFieldHandle.E_SERVICE_USERNAME_PASSWORD_VERIFICATION_SERVICE_UNKNOWN,
+                "Unknown error during username and password verification");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_INVALID_BDUSS_OR_STOKEN, "Invalid BDUSS or SToken");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_NOT_SUBSCRIBED,
+                "HTTYD bar is not subscribed");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_ZERO_RECORD_UPDATED, "No record updated");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_MULTIPLE_RECORDS_UPDATED,
+                "Multiple records updated");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_UNMATCHED_REQUEST, "Unmatched request");
+            
+            put(LanguageFieldHandle.E_WEB_SERVLET_INVALID_AUTH_TYPE, "Invalid value of authType");
+            put(LanguageFieldHandle.E_WEB_SERVLET_USERNAME_PASSWORD_MISMATCH, "Username and password mismatch");
+            put(LanguageFieldHandle.E_WEB_SERVLET_UNKNOWN_ERROR, "Unknown Servlet error");
+            
+            put(LanguageFieldHandle.I_WEB_SERVLET_USERNAME_PASSWORD_PASS, "Verification passed");
+            put(LanguageFieldHandle.I_WEB_SERVLET_MIGRATION_SUCCESS, "Credit migration success");
         }
     };
     

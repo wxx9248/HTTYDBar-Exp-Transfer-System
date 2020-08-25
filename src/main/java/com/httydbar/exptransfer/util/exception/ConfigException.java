@@ -9,30 +9,30 @@ import com.httydbar.exptransfer.util.impl.ConfigManager;
  * @author wxx9248
  * @see ConfigManager
  */
-public class ConfigNotLoadedException extends ConfigException
+public class ConfigException extends UtilException
 {
-    public ConfigNotLoadedException()
+    public ConfigException()
     {
         super();
     }
     
-    public ConfigNotLoadedException(String message)
+    public ConfigException(String message)
     {
         super(message);
     }
     
-    public ConfigNotLoadedException(String message, Throwable cause)
+    public ConfigException(String message, Throwable cause)
     {
         super(message, cause);
     }
     
-    public ConfigNotLoadedException(String message, Throwable cause, boolean enableSuppression,
-                                    boolean writableStackTrace)
+    public ConfigException(String message, Throwable cause, boolean enableSuppression,
+                           boolean writableStackTrace)
     {
         super(message, cause, enableSuppression, writableStackTrace);
     }
     
-    public ConfigNotLoadedException(Throwable cause)
+    public ConfigException(Throwable cause)
     {
         super(cause);
     }

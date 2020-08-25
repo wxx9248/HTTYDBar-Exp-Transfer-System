@@ -1,7 +1,7 @@
 package com.httydbar.exptransfer.dao;
 
-import com.httydbar.exptransfer.dao.exception.DAOException;
 import com.httydbar.exptransfer.dao.exception.DatabaseCloseFailedException;
+import com.httydbar.exptransfer.dao.exception.DatabaseClosedException;
 import com.httydbar.exptransfer.dao.exception.DatabaseConnectionFailedException;
 import com.httydbar.exptransfer.util.impl.Account;
 import com.httydbar.exptransfer.util.impl.Database;
@@ -27,9 +27,9 @@ public interface IDatabaseDAO
     
     Connection getConnection();
     
-    PreparedStatement getPreparedStatement(@NotNull String query) throws SQLException;
+    PreparedStatement getPreparedStatement(@NotNull String query) throws DatabaseClosedException, SQLException;
     
-    int doUpdate(@NotNull PreparedStatement preparedStatement) throws DAOException, SQLException;
+    int doUpdate(@NotNull PreparedStatement preparedStatement) throws DatabaseClosedException, SQLException;
     
-    ResultSet doQuery(@NotNull PreparedStatement preparedStatement) throws DAOException, SQLException;
+    ResultSet doQuery(@NotNull PreparedStatement preparedStatement) throws DatabaseClosedException, SQLException;
 }

@@ -1,9 +1,14 @@
 package com.httydbar.exptransfer.service;
 
 import com.httydbar.exptransfer.dao.IDatabaseDAOWithAccount;
+import com.httydbar.exptransfer.dao.exception.DatabaseClosedException;
 import com.httydbar.exptransfer.dao.exception.DatabaseConnectionFailedException;
 import com.httydbar.exptransfer.dao.impl.DatabaseDAOFactory;
+import com.httydbar.exptransfer.i18n.impl.LanguageFieldHandle;
+import com.httydbar.exptransfer.i18n.impl.LanguageProvider;
+import com.httydbar.exptransfer.service.exception.ServiceRuntimeException;
 import com.httydbar.exptransfer.util.IDigest;
+import com.httydbar.exptransfer.util.exception.ConfigException;
 import com.httydbar.exptransfer.util.exception.ConfigNotLoadedException;
 import com.httydbar.exptransfer.util.exception.ConfigNotParsedException;
 import com.httydbar.exptransfer.util.impl.*;
@@ -36,7 +41,7 @@ public class UsernamePasswordVerificationService
      * @throws ConfigNotParsedException          When global config has not been parsed.
      */
     public static int verify(Account account) throws DatabaseConnectionFailedException, SQLException,
-                                                     ConfigNotLoadedException, ConfigNotParsedException
+                                                     ConfigException
     {
         String username    = account.getUsername();
         String md5Password = account.getPassword();
@@ -45,17 +50,35 @@ public class UsernamePasswordVerificationService
         DatabaseDAOFactory      databaseDAOFactory = new DatabaseDAOFactory(ConfigManager.getDatabaseConfiguration());
         IDatabaseDAOWithAccount dataBaseDAO        = databaseDAOFactory.getInstance(ConfigManager.getDatabaseAccount());
         
-        dataBaseDAO.connect();
-        PreparedStatement preparedStatement = dataBaseDAO.getPreparedStatement(
-                "SELECT uid, password, salt FROM pre_ucenter_members WHERE username = ?;");
+        PreparedStatement preparedStatement;
+        try
+        {
+            dataBaseDAO.connect();
+            preparedStatement = dataBaseDAO.getPreparedStatement(
+                    "SELECT uid, password, salt FROM pre_ucenter_members WHERE username = ?;");
+        }
+        catch (DatabaseClosedException e)
+        {
+            throw new ServiceRuntimeException(LanguageProvider.getCurrentLanguage().getField(
+                    LanguageFieldHandle.E_DAO_IMPL_DATABASE_DAO_FACTORY_UNKNOWN), e);
+        }
+        
         sqlParamManager.addParam(username);
         
         ResultSet resultSet = sqlParamManager.populatePreparedStatement(preparedStatement).executeQuery();
-        resultSet.next();
         
-        int    uid            = resultSet.getInt("uid");
-        String saltedPassword = resultSet.getString("password");
-        String salt           = resultSet.getString("salt");
+        int    uid;
+        String saltedPassword;
+        String salt;
+        
+        if (resultSet.next())
+        {
+            uid            = resultSet.getInt("uid");
+            saltedPassword = resultSet.getString("password");
+            salt           = resultSet.getString("salt");
+        }
+        else
+            return -1;
         
         IDigest md5Digest = MD5Digest.getInstance();
         
