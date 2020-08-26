@@ -6,6 +6,7 @@ import com.httydbar.exptransfer.service.ExpMigrationService;
 import com.httydbar.exptransfer.service.UsernamePasswordVerificationService;
 import com.httydbar.exptransfer.service.exception.InvalidTokenException;
 import com.httydbar.exptransfer.service.exception.TiebaNotSubscribedException;
+import com.httydbar.exptransfer.service.exception.UsernameTokenMismatchException;
 import com.httydbar.exptransfer.util.impl.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +25,8 @@ public class MainServlet extends HttpServlet
     {
         try
         {
-            ConfigManager.loadJSONConfigFromFile("E:\\config.json");
+            ConfigManager.loadJSONConfigFromFile("/etc/exptransfer/config.json");
+            //ConfigManager.loadJSONConfigFromFile("E:\\exptransfer\\config.json");
             ConfigManager.parseConfiguration();
         }
         catch (Exception e)
@@ -36,8 +38,6 @@ public class MainServlet extends HttpServlet
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     {
-        response.setCharacterEncoding("utf-8");
-        
         try
         {
             response.sendRedirect("/");
@@ -56,8 +56,8 @@ public class MainServlet extends HttpServlet
         {
             try
             {
-                if (!(request.getHeader("Content-Type").equals("application/json") && request.getHeader(
-                        "Referer").contains("httydbar.com")))
+                if (!(request.getHeader("Content-Type").contains("application/json") && request.getHeader(
+                        "Referer").contains("exptransfer.wxx9248.tk")))
                 {
                     throw new IllegalArgumentException();
                 }
@@ -121,13 +121,17 @@ public class MainServlet extends HttpServlet
                             throw new Exception(LanguageProvider.getCurrentLanguage().getField(
                                     LanguageFieldHandle.E_WEB_SERVLET_UNKNOWN_ERROR));
                     }
-                    catch (InvalidTokenException e)
+                    catch (UsernameTokenMismatchException e)
                     {
                         responseJSON(response, new ServerResponse("403.2", e.getMessage()));
                     }
-                    catch (TiebaNotSubscribedException e)
+                    catch (InvalidTokenException e)
                     {
                         responseJSON(response, new ServerResponse("403.3", e.getMessage()));
+                    }
+                    catch (TiebaNotSubscribedException e)
+                    {
+                        responseJSON(response, new ServerResponse("403.4", e.getMessage()));
                     }
                     return;
                 default:
@@ -147,7 +151,7 @@ public class MainServlet extends HttpServlet
         try
         {
             response.setStatus(500);
-            response.setContentType("application/json");
+            response.setContentType("application/json; charset=utf-8");
             JsonObjectBuilder responseJSONBuilder = Json.createObjectBuilder();
             
             StringWriter stringWriter = new StringWriter();
@@ -173,7 +177,7 @@ public class MainServlet extends HttpServlet
             throws IOException
     {
         response.setStatus(200);
-        response.setContentType("application/json");
+        response.setContentType("application/json; charset=utf-8");
         
         JsonObjectBuilder responseJSONBuilder = Json.createObjectBuilder()
                                                     .add("code", responseData.getCode())

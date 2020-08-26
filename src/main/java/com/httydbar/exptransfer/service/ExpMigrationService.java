@@ -17,6 +17,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A service class that is used to migrate Tieba experience value to forum database
@@ -28,9 +29,23 @@ public class ExpMigrationService
     // Pure static, not instantiable.
     private ExpMigrationService() {}
     
+    /**
+     * Migrate credits to corresponding forum account.
+     *
+     * @param extendedAccount An ExtendedAccount object, stores additional tiebaID, bduss, and sToken.
+     *
+     * @return Current credit points if success
+     *
+     * @throws DAOException                When general database operation fails
+     * @throws SQLException                When SQL operation fails
+     * @throws ConfigException             When configuration file is not properly loaded
+     * @throws NoSpecifiedKeyException     When performing RSA encryption/decryption without specifying a key pair
+     * @throws TiebaNotSubscribedException When user try to migrate credits without subscribing to HTTYD Bar
+     * @throws InvalidTokenException       When invalid token pair is provided
+     */
     public static int migrate(ExtendedAccount extendedAccount)
             throws DAOException, SQLException, ConfigException, NoSpecifiedKeyException, TiebaNotSubscribedException,
-                   InvalidTokenException
+                   InvalidTokenException, UsernameTokenMismatchException
     {
         int uid = UsernamePasswordVerificationService.verify(extendedAccount);
         if (uid > 0)
@@ -46,9 +61,23 @@ public class ExpMigrationService
             String sToken = new String(cipher.decrypt(ByteCodec.Base64String.toByteArray(extendedAccount.getSToken())),
                                        StandardCharsets.UTF_8);
             
+            TieBaApi tiebaAPI = new TieBaApi();
+            
+            // Verify if user possess the bduss and sToken
+            String              expectedTiebaID = null;
+            Map<String, Object> map             = tiebaAPI.getUserInfo(bduss, sToken);
+            
+            if (map != null)
+                expectedTiebaID = (String) map.get("user_name_weak");
+            else
+                throw new InvalidTokenException(LanguageProvider.getCurrentLanguage().getField(
+                        LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_INVALID_BDUSS_OR_STOKEN));
+            
+            if (expectedTiebaID == null || !expectedTiebaID.equals(tiebaID))
+                throw new UsernameTokenMismatchException(LanguageProvider.getCurrentLanguage().getField(
+                        LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_ID_TOKEN_MISMATCH));
             
             // Get the list of followed bars
-            TieBaApi   tiebaAPI     = new TieBaApi();
             List<MyTB> myLikedTieba = tiebaAPI.getMyLikedTB(bduss, sToken);
             int        exp          = -1;
             

@@ -1,7 +1,7 @@
 package com.httydbar.exptransfer.i18n.impl;
 
 import com.httydbar.exptransfer.i18n.ILanguagePack;
-import com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish;
+import com.httydbar.exptransfer.i18n.impl.packs.SimplifiedChinese;
 
 /**
  * A class that are used to store the currently used language of the system.
@@ -10,7 +10,7 @@ import com.httydbar.exptransfer.i18n.impl.packs.AmericanEnglish;
  */
 public class LanguageProvider
 {
-    private static final ILanguagePack CURRENT_LANGUAGE = AmericanEnglish.getInstance();
+    private static final ILanguagePack CURRENT_LANGUAGE = SimplifiedChinese.getInstance();
     
     // Pure static, not instantiable.
     private LanguageProvider() {}

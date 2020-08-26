@@ -45,6 +45,7 @@ public final class SimplifiedChinese implements ILanguagePack
             
             put(LanguageFieldHandle.E_SERVICE_USERNAME_PASSWORD_VERIFICATION_SERVICE_UNKNOWN, "在验证用户名和密码时发生未知错误");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_INVALID_BDUSS_OR_STOKEN, "无效的BDUSS或SToken");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_ID_TOKEN_MISMATCH, "贴吧ID和BDUSS值或SToken值不匹配");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_NOT_SUBSCRIBED, "未关注驯龙高手吧");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_ZERO_RECORD_UPDATED, "零更新记录数");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_MULTIPLE_RECORDS_UPDATED, "多更新记录数");

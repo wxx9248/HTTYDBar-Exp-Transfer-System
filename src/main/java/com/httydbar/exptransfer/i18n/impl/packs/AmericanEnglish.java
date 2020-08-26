@@ -53,6 +53,8 @@ public class AmericanEnglish implements ILanguagePack
             put(LanguageFieldHandle.E_SERVICE_USERNAME_PASSWORD_VERIFICATION_SERVICE_UNKNOWN,
                 "Unknown error during username and password verification");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_INVALID_BDUSS_OR_STOKEN, "Invalid BDUSS or SToken");
+            put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_ID_TOKEN_MISMATCH,
+                "Tieba ID does not match BDUSS and SToken");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_TIEBA_NOT_SUBSCRIBED,
                 "HTTYD bar is not subscribed");
             put(LanguageFieldHandle.E_SERVICE_EXP_MIGRATION_SERVICE_ZERO_RECORD_UPDATED, "No record updated");
